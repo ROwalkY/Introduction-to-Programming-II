@@ -1,0 +1,244 @@
+Script started on Tue 20 Mar 2018 11:45:58 AM EDT
+]0;geng115@ltsp-amd64-bravo: ~/Desktop/Assign/assign_3[01;32mgeng115@ltsp-amd64-bravo[00m:[01;34m~/Desktop/Assign/assign_3[00m$ cat twitter.txt
+1000
+Tue Mar 20 15:45:17 2018
+xiao
+the first tweet
+1001
+Tue Mar 20 15:45:22 2018
+xiao
+the second tweet
+]0;geng115@ltsp-amd64-bravo: ~/Desktop/Assign/assign_3[01;32mgeng115@ltsp-amd64-bravo[00m:[01;34m~/Desktop/Assign/assign_3[00m$ ./a[K[K[Kcc ti[Kwitter.c
+]0;geng115@ltsp-amd64-bravo: ~/Desktop/Assign/assign_3[01;32mgeng115@ltsp-amd64-bravo[00m:[01;34m~/Desktop/Assign/assign_3[00m$ ./a.out 
+Welcome to Simple Twitter
+-------------------------
+Please enter your name: Xiaoshuai Geng
+Welcome Xiaoshuai Geng, let's start tweeting...
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 5
+Please enter a filename: twitter.txt
+2 tweet(s) loaded form file "twitter.txt"
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 3
+Displaying all 2 tweets:
+id: 1000      Created at: Tue Mar 20 15:45:17 2018 by xiao
+the first tweet
+id: 1001      Created at: Tue Mar 20 15:45:22 2018 by xiao
+the second tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+Tweet text (No more than 140 characters): the third twitter     eet
+New Tweet Created:
+id: 1002      Created at: Tue Mar 20 15:47:01 2018 by Xiaoshuai Geng
+the third tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 3
+Displaying all 3 tweets:
+id: 1000      Created at: Tue Mar 20 15:45:17 2018 by xiao
+the first tweet
+id: 1001      Created at: Tue Mar 20 15:45:22 2018 by xiao
+the second tweet
+id: 1002      Created at: Tue Mar 20 15:47:01 2018 by Xiaoshuai Geng
+the third tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+Tweet text (No more than 140 characters): the fouth    rth tww eet
+New Tweet Created:
+id: 1003      Created at: Tue Mar 20 15:47:16 2018 by Xiaoshuai Geng
+the fourth tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+Tweet text (No more than 140 characters): the fifth tweet
+New Tweet Created:
+id: 1004      Created at: Tue Mar 20 15:47:21 2018 by Xiaoshuai Geng
+the fifth tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 3
+Displaying all 5 tweets:
+id: 1000      Created at: Tue Mar 20 15:45:17 2018 by xiao
+the first tweet
+id: 1001      Created at: Tue Mar 20 15:45:22 2018 by xiao
+the second tweet
+id: 1002      Created at: Tue Mar 20 15:47:01 2018 by Xiaoshuai Geng
+the third tweet
+id: 1003      Created at: Tue Mar 20 15:47:16 2018 by Xiaoshuai Geng
+the fourth tweet
+id: 1004      Created at: Tue Mar 20 15:47:21 2018 by Xiaoshuai Geng
+the fifth tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 2
+Please enter the search keyword: the
+Found match:
+id: 1000      Created at: Tue Mar 20 15:45:17 2018 by xiao
+the first tweet
+Found match:
+id: 1001      Created at: Tue Mar 20 15:45:22 2018 by xiao
+the second tweet
+Found match:
+id: 1002      Created at: Tue Mar 20 15:47:01 2018 by Xiaoshuai Geng
+the third tweet
+Found match:
+id: 1003      Created at: Tue Mar 20 15:47:16 2018 by Xiaoshuai Geng
+the fourth tweet
+Found match:
+id: 1004      Created at: Tue Mar 20 15:47:21 2018 by Xiaoshuai Geng
+the fifth tweet
+Found 5 tweets matching the criteria!
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 2
+Please enter the search keyword: i fifth
+Found match:
+id: 1004      Created at: Tue Mar 20 15:47:21 2018 by Xiaoshuai Geng
+the fifth tweet
+Found 1 tweets matching the criteria!
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 4
+Please enter a filename: c tit  witter.txt
+5 tweet(s) saved in file "twitter.txt"
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 6
+Good bye!
+]0;geng115@ltsp-amd64-bravo: ~/Desktop/Assign/assign_3[01;32mgeng115@ltsp-amd64-bravo[00m:[01;34m~/Desktop/Assign/assign_3[00m$ ./a.out
+Welcome to Simple Twitter
+-------------------------
+Please enter your name: K GENG
+Welcome GENG, let's start tweeting...
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 5
+Please enter a filename: twitter.txt
+5 tweet(s) loaded form file "twitter.txt"
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 3
+Displaying all 5 tweets:
+id: 1000      Created at: Tue Mar 20 15:45:17 2018 by xiao
+the first tweet
+id: 1001      Created at: Tue Mar 20 15:45:22 2018 by xiao
+the second tweet
+id: 1002      Created at: Tue Mar 20 15:47:01 2018 by Xiaoshuai Geng
+the third tweet
+id: 1003      Created at: Tue Mar 20 15:47:16 2018 by Xiaoshuai Geng
+the fourth tweet
+id: 1004      Created at: Tue Mar 20 15:47:21 2018 by Xiaoshuai Geng
+the fifth tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 6
+Good bye!
+]0;geng115@ltsp-amd64-bravo: ~/Desktop/Assign/assign_3[01;32mgeng115@ltsp-amd64-bravo[00m:[01;34m~/Desktop/Assign/assign_3[00m$ exit[K[K[K[Kcat tweets.txt[K[K[K[K[K[K[K[Kitter.txt
+1000
+Tue Mar 20 15:45:17 2018
+xiao
+the first tweet
+1001
+Tue Mar 20 15:45:22 2018
+xiao
+the second tweet
+1002
+Tue Mar 20 15:47:01 2018
+Xiaoshuai Geng
+the third tweet
+1003
+Tue Mar 20 15:47:16 2018
+Xiaoshuai Geng
+the fourth tweet
+1004
+Tue Mar 20 15:47:21 2018
+Xiaoshuai Geng
+the fifth tweet
+]0;geng115@ltsp-amd64-bravo: ~/Desktop/Assign/assign_3[01;32mgeng115@ltsp-amd64-bravo[00m:[01;34m~/Desktop/Assign/assign_3[00m$ cat tweets.txt
+]0;geng115@ltsp-amd64-bravo: ~/Desktop/Assign/assign_3[01;32mgeng115@ltsp-amd64-bravo[00m:[01;34m~/Desktop/Assign/assign_3[00m$ exit
+exit
+
+Script done on Tue 20 Mar 2018 11:49:12 AM EDT

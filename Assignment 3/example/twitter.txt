@@ -1,0 +1,240 @@
+Script started on Fri 09 Mar 2018 10:48:03 PM EST
+hello world from bashrc
+kobti@alpha:~/cs141/twitter$ ./[K[Kcat [K[K[K[Kcc twitter.c
+kobti@alpha:~/cs141/twitter$ ./a.out
+Welcome to Simple Twitter
+-------------------------
+Please enter your user name: ziad kobti
+Welcome ziad kobti, let's start tweeting...
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+tweet text: my first tweet
+New Tweet Created:
+id: 1000	Created at: Fri Mar  9 22:48:25 2018 by ziad kobti
+my first tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+tweet text: my second tweet
+New Tweet Created:
+id: 1001	Created at: Fri Mar  9 22:48:32 2018 by ziad kobti
+my second tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 3
+Displaying all 2 tweets: 
+id: 1000	Created at: Fri Mar  9 22:48:25 2018 by ziad kobti
+my first tweet
+
+id: 1001	Created at: Fri Mar  9 22:48:32 2018 by ziad kobti
+my second tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 4
+Please enter a filename: tweets.txt
+2 tweet(s) saved in file "tweets.txt".
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 6
+Good bye!
+kobti@alpha:~/cs141/twitter$ ./a.out
+Welcome to Simple Twitter
+-------------------------
+Please enter your user name: sherif saad
+Welcome sherif saad, let's start tweeting...
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 5
+Please enter a filename: tweets.txt
+2 tweet(s) loaded from file tweets.txt.
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 3
+Displaying all 2 tweets: 
+id: 1000	Created at: Fri Mar  9 22:48:25 2018 by ziad kobti
+my first tweet
+
+id: 1001	Created at: Fri Mar  9 22:48:32 2018 by ziad kobti
+my second tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+tweet text: my thri  ird tweet
+New Tweet Created:
+id: 1002	Created at: Fri Mar  9 22:49:45 2018 by sherif saad
+my third tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+tweet text: my fourth tweet
+New Tweet Created:
+id: 1003	Created at: Fri Mar  9 22:49:56 2018 by sherif saad
+my fourth tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1
+tweet text: my fifth tweet
+New Tweet Created:
+id: 1004	Created at: Fri Mar  9 22:50:02 2018 by sherif saad
+my fifth tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 1 m  
+Array is full!
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 3
+Displaying all 5 tweets: 
+id: 1000	Created at: Fri Mar  9 22:48:25 2018 by ziad kobti
+my first tweet
+
+id: 1001	Created at: Fri Mar  9 22:48:32 2018 by ziad kobti
+my second tweet
+
+id: 1002	Created at: Fri Mar  9 22:49:45 2018 by sherif saad
+my third tweet
+
+id: 1003	Created at: Fri Mar  9 22:49:56 2018 by sherif saad
+my fourth tweet
+
+id: 1004	Created at: Fri Mar  9 22:50:02 2018 by sherif saad
+my fifth tweet
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 2
+Please enter the search keyword: fourth
+Found match:
+id: 1003	Created at: Fri Mar  9 22:49:56 2018 by sherif saad
+my fourth tweet
+
+Found 1 tweets matching the criteria!
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 2
+Please enter the search keyword: my
+Found match:
+id: 1000	Created at: Fri Mar  9 22:48:25 2018 by ziad kobti
+my first tweet
+
+Found match:
+id: 1001	Created at: Fri Mar  9 22:48:32 2018 by ziad kobti
+my second tweet
+
+Found match:
+id: 1002	Created at: Fri Mar  9 22:49:45 2018 by sherif saad
+my third tweet
+
+Found match:
+id: 1003	Created at: Fri Mar  9 22:49:56 2018 by sherif saad
+my fourth tweet
+
+Found match:
+id: 1004	Created at: Fri Mar  9 22:50:02 2018 by sherif saad
+my fifth tweet
+
+Found 5 tweets matching the criteria!
+
+1. Create a new tweet
+2. Search tweets
+3. Display tweets
+4. Save tweets to file
+5. Load tweets from file
+6. Exit
+
+>> 6
+Good bye!
+kobti@alpha:~/cs141/twitter$ exit[K[K[K[Kcat tweets.txt
+1000
+Fri Mar  9 22:48:25 2018
+ziad kobti
+my first tweet
+1001
+Fri Mar  9 22:48:32 2018
+ziad kobti
+my second tweetkobti@alpha:~/cs141/twitter$ ./a.out[K[K[K[K[K[K[Kexit
+exit
+
+Script done on Fri 09 Mar 2018 10:51:12 PM EST

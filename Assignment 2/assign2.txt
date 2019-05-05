@@ -1,0 +1,590 @@
+Script started on Sun 25 Feb 2018 12:40:04 PM EST
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign/assign_2[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign/assign_2[00m$ cat assign2.c
+/*
+	Xiaoshuai Geng
+	104845608
+	assignment 2
+
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define COL 20
+
+#define ROW 20
+
+void PopulateArray2DUnique(int A[][COL], unsigned int rowsize, unsigned int colsize, int min, int max);
+
+void DisplayArray2D(int A[][COL], unsigned int rowsize, unsigned int colsize);
+
+int FindLargest(int A[][COL], unsigned int rowsize, unsigned int colsize);
+
+int FindColSum(int A[][COL], unsigned int rowsize, unsigned int colsize, unsigned int col_to_sum);
+
+int Sort2Darray(int A[][COL], unsigned int rowsize, unsigned int colsize);
+
+int CopyArray2D(int A[][COL], int B[][COL], unsigned int rowsize,unsigned int colsize);
+
+int CopyArray2DSpiral(int A[][COL], int B[][COL], unsigned int rowsize, unsigned int colsize);
+
+int main(void){
+	
+	int A[ROW][COL];	
+	
+	int B[ROW][COL];
+	
+	int input_row;			//how many rows being displayed
+	
+	int input_col;			//how many cols being displayed
+	
+	do{
+		
+		printf("Testing an array of size: ");		
+	
+		scanf("%d%d",&input_row, &input_col);
+		
+	}while(input_row > 20 && input_col > 20);
+	
+	
+	
+	printf("\n");
+	
+	PopulateArray2DUnique(A, input_row,input_col,1,99);
+	
+	printf("Populate Array with unique random integers between 1 and 99:\n");
+	
+	DisplayArray2D(A, input_row, input_col);
+	
+	printf("\nFindLargest: %d\n", FindLargest(A, input_row,input_col));
+	
+	printf("\nFindColSum of col 0: %d\n", FindColSum(A, input_row,input_row, 0));
+	
+	Sort2Darray(A,input_row,input_col);
+	
+	printf("\nSort2Darray followed by DisplayArray2D:\n");
+	
+	DisplayArray2D(A, input_row,input_col);
+	
+	CopyArray2D(A,B,input_row,input_col);
+	
+	printf("Copy2Darray from A to B, then Display B:\n");
+	
+	DisplayArray2D(B, input_row,input_col);
+	
+	CopyArray2DSpiral(A,B,input_row,input_col);
+	
+	printf("CopyArray2DSpiral from A to B, then Display B: \n");
+	
+	DisplayArray2D(B, input_row,input_col);
+	
+	printf("\n*********END*********\n");
+	
+	return 0; 
+	
+}
+
+
+	//PopulateArray2DUnique:		Populate the 2D of sizes rowsize x colsize with random
+									//integers ranging between min and max inclusive
+	//INPUT:						A 2D array, row and col size , the range from min to max
+	//OUTPUT:						a 2d array being populated by the values bewteen min and max
+	//include <time.h>
+	void PopulateArray2DUnique(int A[][COL], unsigned int rowsize, unsigned int colsize, int min, int max){
+		
+		srand((unsigned)time(NULL));
+		
+		int i;				//Use for count in for-loop
+		
+		int n;
+		
+		for(i = 0; i < rowsize ; i++){
+			
+			for(n = 0; n < colsize; n++){
+				
+				A[i][n] = rand() % (max + 1 - min) + min;
+				
+			}
+			
+		}
+		
+	}
+	
+	
+	//DisplayArray2D:			Display all the elements in the 2d array
+	//INPUT:					A 2d array with give rowsize and colsize
+	//OUTPUT:					All the values in 2d array will be print to screen
+	void DisplayArray2D(int A[][COL], unsigned int rowsize, unsigned int colsize){
+		
+		int i;				//Use for count in for-loop
+		
+		int n;				//use in the loop
+		
+		for(i = 0; i < rowsize ; i++){
+			
+			for(n = 0; n < colsize; n++){
+				
+				printf("%2d ", A[i][n]);
+				
+			}
+			
+			printf("\n");
+			
+		}
+		
+	}
+	
+	
+	
+	//FindLargest:				Find the largest value in an array
+	//INPUT:					A 2D array address, rowsize and colsize
+	//OUTPUT:					the largest value in the array
+	int FindLargest(int A[][COL], unsigned int rowsize, unsigned int colsize){
+		
+		int max = A[0][0];		//store the the current largest value
+		//temporally let the first element in the array be the largest value
+		
+		int i;				//Use in the loop for counting
+		
+		int n; 				//use in the loop for counting
+		
+		for(i = 0; i < rowsize; i++){
+			
+			for(n = 0; n < colsize; n++){
+				
+				if( max < A[i][n] ){
+					
+					max = A[i][n];
+					
+				}
+				
+			}
+			
+		}
+		
+		
+		return max;
+		
+	}
+	
+	
+	//FindColSum:				Calculate the sum of a given column col of a 2D array of size rowsize x colsize.
+	//INPUT:					address of 2d array, rowsize and colsize,and which column need to be calculated
+	//OUTPUT:					the sum of all element in that column
+	int FindColSum(int A[][COL], unsigned int rowsize, unsigned int colsize, unsigned int col_to_sum){
+		
+		int sum = 0;			//store the total sum of the column sum
+		
+		int i;					//Use in the loop for counting
+		
+		for(i = 0; i < rowsize; i++){
+			
+			sum += A[i][col_to_sum];
+			
+		}
+		
+		
+		return sum;
+	}
+	
+	//Sort2Darray:				Sort the 2D array in ascending order
+	//INPUT:					a 2D array address with rowsize and colsize
+	//OUTPUT:					all the elements in 2d array are sorted in ascending order
+	int Sort2Darray(int A[][COL], unsigned int rowsize, unsigned int colsize){
+		
+		int copy = 0, paste = 0;		//from 0 to final element of 1D array 
+		
+		int done = 0;					//test if there is no swap in bubble sort
+		
+		int swap;						//Swap the values in array
+		
+		int i;							//use for counting in loop
+		
+		int n;							//use for counting in loop
+		
+		int copy_array[rowsize * colsize];
+		
+		for(i = 0; i < rowsize; ++i){		//Copy from 2D to 1D
+			
+			for( n = 0; n < colsize ; ++n, copy++){
+				
+				copy_array[copy] = A[i][n];		
+				
+			}
+		
+		}
+		
+		for( i = 0; i < copy - 1 && !done; i++){
+										//Improved Bubble sort process
+			done = 1;
+			
+			for(n = copy - 1; n > i; n-- ){
+				
+				if(copy_array[n] < copy_array[n - 1]){
+					
+					swap = copy_array[n];
+					
+					copy_array[n] = copy_array[n - 1];
+					
+					copy_array[n - 1] = swap;
+					
+					done = 0;
+					
+				}
+				
+			}
+			
+		}
+		
+		for(i = 0; i < rowsize; ++i){		//copy from 1D back to 2D
+			
+			for(n = 0; n < colsize ; ++n, paste++){
+				
+				A[i][n] = copy_array[paste] ;		
+			}
+		
+		}
+		
+		return 0;
+	}
+	
+	
+	//CopyArray2D:					Copy the contents of array A into array B of the same size such that
+									//the contents of B would be exactly the contents of A
+	//INPUT:						original 2d array A and 2d array B with rowsize and colsize
+	//OUTPUT:						the elements in B are the exact copy in A
+	int CopyArray2D(int A[][COL], int B[][COL], unsigned int rowsize,unsigned int colsize){
+		
+		int i;						//Use for counting in loop
+		
+		int n; 						//Use for counting in loop
+		
+		for(i = 0; i < rowsize; i++){
+			
+			for(n = 0; n < colsize; n++){
+				
+				B[i][n] = A[i][n];
+				
+			}
+			
+		}
+		
+		return 0;
+		
+	}
+	
+	//CopyArray2DSpiral:			Copy the contents of array A into array B of the same size such that
+									//the contents of B would be exactly the contents of A except they will
+									//be in a clockwise spiral sorted order.
+	//INPUT:						original 2D array A and a 2D array B with rowsize and colsize
+	//OUTPUT:						the element in B are the copyed from A by clockwise sprial sorted order					
+	int CopyArray2DSpiral(int A[][COL], int B[][COL], unsigned int rowsize, unsigned int colsize){
+		//Direction:  R D L U
+		
+		int row =0, col = 0;//use to count the current row and col in B
+		
+		char direction = 'R';
+		
+		for(int i = 0; i < rowsize; i++){
+			
+			for(int n = 0; n < colsize; n++){
+				
+				B[i][n] = 0;
+				
+			}
+		
+		}
+  
+        for(int i = 0; i < rowsize; i++){
+            
+            for(int n = 0; n < colsize; n++){
+                
+                switch(direction){
+                    
+                    case 'R':
+                        
+                        
+                            
+                        if(B[row][col + 1] != 0 ){
+                            
+                            direction = 'D';
+                            
+                            B[row][col] = A[i][n];
+                            
+                            row++;   
+							
+                        }else{
+                            
+                            B[row][col] = A[i][n];
+                            
+                            col++;
+                            
+                        }
+                        
+                        if( col >= colsize ){
+                            
+                            col--;
+                            
+                            row++;
+                            
+                            direction = 'D';
+                        }    
+                            
+                            
+                        break;
+                        
+                    case 'D':
+                        
+                        if(B[row + 1][col] != 0){
+                            
+                            direction = 'L';
+                            
+                            B[row][col] = A[i][n];
+                            
+                            col--;
+                            
+                            
+                        }else{
+                            
+                            B[row][col] = A[i][n];
+                            
+                            row++;
+                            
+                        }
+                        
+                        if( row >= rowsize ){
+                            
+                            row--;
+                            
+                            col--;
+                            
+                            direction = 'L';
+                            
+                        }
+                        
+                        break;
+                        
+                    case 'L':
+                        
+                        if(B[row][col - 1] != 0){
+                            
+                            direction = 'U';
+                            
+                            B[row][col] = A[i][n];
+                        
+                            row--;
+                            
+                        }else{
+                            
+                            B[row][col] = A[i][n];
+                            
+                            col--;
+                        
+                        }
+                        if( col < 0 ){
+                            
+                            col++;
+                            
+                            row--;
+                            
+                            direction = 'U';
+                        }
+                        break;
+                        
+                    case 'U':
+                        
+                        if(B[row - 1][col] != 0){
+
+                            direction = 'R';
+                            
+                            B[row][col] = A[i][n];
+                            
+                            col++;
+                            
+                            
+                            
+                        }else{
+                            
+                            B[row][col] = A[i][n];
+                            
+                            row--;
+                            
+                        }
+                        if( row < 0 ){
+                            
+                            row++;
+                            
+                            col++;
+                            
+                            direction = 'R';
+                        }
+                        break;
+                
+				}
+				
+			}
+			
+		}
+		
+		
+		return 0;
+		
+	}
+	
+	
+	
+	
+	]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign/assign_2[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign/assign_2[00m$ cc assign2.c
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign/assign_2[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign/assign_2[00m$ ./a.out
+Testing an array of size: 1 1
+
+Populate Array with unique random integers between 1 and 99:
+74 
+
+FindLargest: 74
+
+FindColSum of col 0: 74
+
+Sort2Darray followed by DisplayArray2D:
+74 
+Copy2Darray from A to B, then Display B:
+74 
+CopyArray2DSpiral from A to B, then Display B: 
+74 
+
+*********END*********
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign/assign_2[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign/assign_2[00m$ ./a.out
+Testing an array of size: 3 4
+
+Populate Array with unique random integers between 1 and 99:
+40 15 81 43 
+ 7 37 38 79 
+40 45 68 90 
+
+FindLargest: 90
+
+FindColSum of col 0: 87
+
+Sort2Darray followed by DisplayArray2D:
+ 7 15 37 38 
+40 40 43 45 
+68 79 81 90 
+Copy2Darray from A to B, then Display B:
+ 7 15 37 38 
+40 40 43 45 
+68 79 81 90 
+CopyArray2DSpiral from A to B, then Display B: 
+ 7 15 37 38 
+79 81 90 40 
+68 45 43 40 
+
+*********END*********
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign/assign_2[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign/assign_2[00m$ ./a.out
+Testing an array of size: 90  9
+
+Populate Array with unique random integers between 1 and 99:
+38 96 79 90 51 42 97 80 48 
+ 4 56 64 45 69 74 64 81 11 
+49 78 53 97 22 33 67 29 48 
+20  2 38 92 39 34 69 28 84 
+ 9 25 62 56 26 17 18 68 85 
+89 31 66 99 79 44 51 76 64 
+81 41 92 28 58 93 65 49 31 
+97 18 58 79 25 80 40 80  6 
+56 98 72 39 87  1  3 85 77 
+
+FindLargest: 99
+
+FindColSum of col 0: 443
+
+Sort2Darray followed by DisplayArray2D:
+ 1  2  3  4  6  9 11 17 18 
+18 20 22 25 25 26 28 28 29 
+31 31 33 34 38 38 39 39 40 
+41 42 44 45 48 48 49 49 51 
+51 53 56 56 56 58 58 62 64 
+64 64 65 66 67 68 69 69 72 
+74 76 77 78 79 79 79 80 80 
+80 81 81 84 85 85 87 89 90 
+92 92 93 96 97 97 97 98 99 
+Copy2Darray from A to B, then Display B:
+ 1  2  3  4  6  9 11 17 18 
+18 20 22 25 25 26 28 28 29 
+31 31 33 34 38 38 39 39 40 
+41 42 44 45 48 48 49 49 51 
+51 53 56 56 56 58 58 62 64 
+64 64 65 66 67 68 69 69 72 
+74 76 77 78 79 79 79 80 80 
+80 81 81 84 85 85 87 89 90 
+92 92 93 96 97 97 97 98 99 
+CopyArray2DSpiral from A to B, then Display B: 
+ 1  2  3  4  6  9 11 17 18 
+48 48 49 49 51 51 53 56 18 
+45 76 77 78 79 79 79 56 20 
+44 74 90 92 92 93 80 56 22 
+42 72 89 98 99 96 80 58 25 
+41 69 87 97 97 97 80 58 25 
+40 69 85 85 84 81 81 62 26 
+39 68 67 66 65 64 64 64 28 
+39 38 38 34 33 31 31 29 28 
+
+*********END*********
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign/assign_2[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign/assign_2[00m$ ./a.out
+Testing an array of size: 10 5
+
+Populate Array with unique random integers between 1 and 99:
+47 71 30 10 28 
+88 19 97 35 72 
+49 70 36  9 34 
+56 92 80 20 98 
+94  6  9 31 20 
+64 64 53  4 15 
+84 48 83 15 58 
+ 9  1 76  6 33 
+46 53  1 79 59 
+32 33 52 12 50 
+
+FindLargest: 98
+
+FindColSum of col 0: 569
+
+Sort2Darray followed by DisplayArray2D:
+ 1  1  4  6  6 
+ 9  9  9 10 12 
+15 15 19 20 20 
+28 30 31 32 33 
+33 34 35 36 46 
+47 48 49 50 52 
+53 53 56 58 59 
+64 64 70 71 72 
+76 79 80 83 84 
+88 92 94 97 98 
+Copy2Darray from A to B, then Display B:
+ 1  1  4  6  6 
+ 9  9  9 10 12 
+15 15 19 20 20 
+28 30 31 32 33 
+33 34 35 36 46 
+47 48 49 50 52 
+53 53 56 58 59 
+64 64 70 71 72 
+76 79 80 83 84 
+88 92 94 97 98 
+CopyArray2DSpiral from A to B, then Display B: 
+ 1  1  4  6  6 
+47 48 49 50  9 
+46 83 84 52  9 
+36 80 88 53  9 
+35 79 92 53 10 
+34 76 94 56 12 
+33 72 97 58 15 
+33 71 98 59 15 
+32 70 64 64 19 
+31 30 28 20 20 
+
+*********END*********
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign/assign_2[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign/assign_2[00m$ exit
+exit
+
+Script done on Sun 25 Feb 2018 12:40:51 PM EST

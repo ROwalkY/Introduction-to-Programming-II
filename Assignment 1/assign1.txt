@@ -1,0 +1,18 @@
+Script started on Tue 30 Jan 2018 06:29:23 PM EST
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign[00m$ cc assign1.c
+]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign[00m$ ./a.out 
+Please enter the number of inputs: 6
+Please enter the whole sequence of numbers here: 24 1 4358 754 305 794
+81 0 6714 792 891 792 
+4176]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign[00m$ ./a.out 
+Please enter the number of inputs: 4  
+Please enter the whole sequence of numbers here: 35 24 608 4
+81 81 891 0 
+198]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign[00m$ ./a.out 
+Please enter the number of inputs: 5
+Please enter the whole sequence of numbers here: 45 306 4857 3031 24
+9 792 7272 8271 81 
+2727]0;geng115@ltsp-amd64-alpha: ~/Desktop/Assign[01;32mgeng115@ltsp-amd64-alpha[00m:[01;34m~/Desktop/Assign[00m$ exit
+exit
+
+Script done on Tue 30 Jan 2018 06:30:45 PM EST
